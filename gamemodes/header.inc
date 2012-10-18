@@ -9,12 +9,17 @@
 #if defined CFG_MODE_NAME
 	#define MODE_NAME         CFG_MODE_NAME
 #else
-	#define MODE_NAME         "Unnamed GM"
+	#define MODE_NAME         "LW_LVDM"
 #endif
 
-#define SCRIPT_VERSION_MAJOR  0
-#define SCRIPT_VERSION_MINOR  3
+#define SCRIPT_VERSION_MAJOR  1
+#define SCRIPT_VERSION_MINOR  0
 #define SCRIPT_VERSION_BUILD  0
+
+//bitarray made easier
+
+#define Bit_On                Bit_Let
+#define Bit_Off               Bit_Vet
 
 // Default return values
 const PBP.DEFAULT_RETURN<OnPlayerCommandText> = 0;
@@ -44,6 +49,7 @@ const PBP.DEFAULT_RETURN<OnPlayerCommandText> = 0;
 // plugins
 #include <whirlpool>
 #include <sscanf2>
+#include <streamer>
 
 // amx_assembly
 #include <amx_assembly\amx>
@@ -55,6 +61,7 @@ const PBP.DEFAULT_RETURN<OnPlayerCommandText> = 0;
 
 // fixes.inc
 #include <fixes>
+
 
 // YSI
 #define YSI_NO_X11
@@ -105,3 +112,15 @@ const   Menu:@INVALID_MENU      = Menu:INVALID_MENU;
 
 #undef  INVALID_MENU
 #define INVALID_MENU @INVALID_MENU
+
+// module info
+#define BANK_MARKER_RADIUS   (1.0)
+#define BANK_PERSONAL_LIMIT	 (1000000)
+
+#define CHECKPOINT_UPPER_LIMIT (80)
+
+#define GUI_INFO_FEED_LINES    (5)
+#define GUI_MAX_INFO_FEED      (128)
+#define GUI_FEED_DISPLAY_TIME  (8000)
+
+#define ZONE_AREA_UPPER_LIMIT	( 1024 )

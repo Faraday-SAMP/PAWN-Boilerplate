@@ -4,6 +4,41 @@
  > Priority: 0
  */
 
+CommandDescription<rpfv> = @"Remove a player from his vehicle.";
+
+YCMD(GROUP_MANAGEMENT, GROUP_ADMIN, GROUP_RCON, GROUP_MOD):rpfv( playerid, params[], help)
+{
+	if( help )
+	{	
+		SendClientMessage(playerid, COLOR_COMMAND_HELP, @"* Remove a player from his vehicle.");
+
+usage:
+		SendClientMessage(playerid, COLOR_COMMAND_USAGE, @"* Usage: /rpfv [player]");
+	}
+	else
+	{
+		new 
+			otherid
+		;
+		
+		if( !sscanf( params, !"k<player_name>", otherid ) )
+		{
+
+			if( !IsPlayerInAnyVehicle( otherid ) )
+			{
+				SendClientMessage( playerid, COLOR_COMMAND_ERROR, @"* The player is not in any vehicle!" );
+				goto usage;
+			}
+			else if( this.PlayerLevel[ playerid ] <= this.LEVEL_MOD )
+				SendClientMessage( playerid, COLOR_COMMAND_ERROR, @"* You cannot remove a player that has the same or a higher level than you from his vehicle." );
+	
+			else
+				RemovePlayerFromVehicle( otherid );
+		}
+	}
+	return 1;	
+}
+ 
 CommandDescription<setlevel> = @"Set a player's admin level.";
 
 YCMD(GROUP_MANAGEMENT, GROUP_RCON):setlevel(playerid, params[], help) {

@@ -3,7 +3,7 @@
  *
  > Priority: 0
  */
-
+ 
 enum e_PLAYER_INFO {
 	      IP,
 	 bool:IsAdmin,
@@ -49,7 +49,9 @@ new
 	         this.CB_OnPlayerSpecialActionChg,
 	         this.CB_OnPlayerCameraModeChange,
 	         this.CB_OnPlayerNameChange,
-	    bool:this.UsePlayerPedAnimations = true
+	    bool:this.UsePlayerPedAnimations = true,
+			 this.PreviousAnimation[ MAX_PLAYERS ],
+			 this.PreviousKeys[ MAX_PLAYERS ]
 ;
 
 
