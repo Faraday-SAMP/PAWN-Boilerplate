@@ -156,3 +156,9 @@
 "Usage: /pm [player] [message]" = "Usage: /pm [player] [message]"
 
 "You cannot pm yourself!" = "You cannot pm yourself!"
+
+"Withdraw or deposit?" = "Withdraw or deposit?"
+
+"Do you want to withdraw or deposit money? \nEnter 'w' or 'd' with the amount you want to withdraw or deposit.\n\n\t*Example: w 5000" = "Do you want to withdraw or deposit money? \nEnter 'w' or 'd' with the amount you want to withdraw or deposit.\n\n\t*Example: w 5000"
+
+"Submit" = "Submit"
