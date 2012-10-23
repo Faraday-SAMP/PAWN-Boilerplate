@@ -128,3 +128,9 @@
 "* Show the config editor." = "* Visa konfigurerings redigeraren."
 
 "Armour" = "Kroppsskydd"
+
+"Withdraw or deposit?" = "Withdraw or deposit?"
+
+"Do you want to withdraw or deposit money? \nEnter 'w' or 'd' with the amount you want to withdraw or deposit.\n\n\t*Example: w 5000" = "Do you want to withdraw or deposit money? \nEnter 'w' or 'd' with the amount you want to withdraw or deposit.\n\n\t*Example: w 5000"
+
+"Submit" = "Submit"
