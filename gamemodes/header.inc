@@ -44,6 +44,7 @@ const PBP.DEFAULT_RETURN<OnPlayerCommandText> = 0;
 // plugins
 #include <whirlpool>
 #include <sscanf2>
+#include <streamer>
 
 // amx_assembly
 #include <amx_assembly\amx>
