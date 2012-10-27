@@ -1,5 +1,76 @@
 // Functions in this file, not including format specifiers.
 
+stock NullString( szString[ ] ) // For 3-dimensional arrays
+	szString[ 0 ] = EOS;
+
+stock timestamp()
+{
+    new
+        h, m, s, d, n, y;
+    gettime(h, m, s);
+    getdate(y, n, d);
+    return mktime(h, m, s, d, n, y);
+}
+
+#define IsLeapYear(%0) \
+    ((!((%0) & 0x03)) && (((%0) % 100) || !((%0) % 400)))
+
+#if !defined TIME_ZONE
+    #define TIME_ZONE
+#endif	
+	
+stock mktime(hour, minute, second, day, month, year)
+{
+    static const
+        days_of_month[12] =
+        {
+            0   * 86400, 31  * 86400, 59  * 86400,
+            90  * 86400, 120 * 86400, 151 * 86400,
+            181 * 86400, 212 * 86400, 243 * 86400,
+            273 * 86400, 304 * 86400, 334 * 86400
+        };
+    // Cache years and months as they change infrequently and require more work.
+    static
+        lMonth, lYear, lMonthS, lYearS;
+    if (year != lYear)
+    {
+        year -= 1970;
+        // Subtract the UNIX epoch.
+        // Get full years.
+        lYearS = year * 31536000;
+        // Add leap years.
+        lYearS += 86400 * (year / 4);
+        // Remove false leap years.
+        // Adjust for the odd start point.
+        year += 70;
+        // Remove all hundreds.
+        lYearS -= (year / 100) * 86400;
+        // Add the 400s back.
+        year += 300;
+        lYearS += (year / 400) * 86400;
+        year += 1600; // 1970 - 370
+        lYear = year;
+    }
+    // Adjust to 0 start.
+    if (month != lMonth)
+    {
+        --month;
+        lMonthS = days_of_month[month];
+        if (IsLeapYear(year) && month >= 2)
+        {
+            // Add an extra day.
+            lMonthS += 86400;
+        }
+        lMonth = month + 1;
+    }
+    day = (day - 1) * 86400;
+    hour = (hour - TIME_ZONE) * 3600;
+    minute = minute * 60;
+    return lYearS + lMonthS + day + hour + minute + second;
+}
+	
+
+	
 /*
  * Get an IP as an integer.
  * 

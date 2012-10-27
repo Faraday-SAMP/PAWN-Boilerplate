@@ -106,3 +106,11 @@ const   Menu:@INVALID_MENU      = Menu:INVALID_MENU;
 
 #undef  INVALID_MENU
 #define INVALID_MENU @INVALID_MENU
+// defines for the modules
+
+#define ZONE_AREA_UPPER_LIMIT        (1024)
+#define CHECKPOINT_UPPER_LIMIT  	 (80)
+
+//this needs to get a good location but I'm putting it here
+#define Bit_On	Bit_Let
+#define Bit_Off	Bit_Vet
