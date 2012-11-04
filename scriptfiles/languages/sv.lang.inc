@@ -134,3 +134,27 @@
 "Do you want to withdraw or deposit money? \nEnter 'w' or 'd' with the amount you want to withdraw or deposit.\n\n\t*Example: w 5000" = "Do you want to withdraw or deposit money? \nEnter 'w' or 'd' with the amount you want to withdraw or deposit.\n\n\t*Example: w 5000"
 
 "Submit" = "Submit"
+
+"Remove a player from his vehicle." = "Remove a player from his vehicle."
+
+"* Remove a player from his vehicle." = "* Remove a player from his vehicle."
+
+"* Usage: /rpfv [player]" = "* Usage: /rpfv [player]"
+
+"* The player is not in any vehicle!" = "* The player is not in any vehicle!"
+
+"* You cannot remove a player that has the same or a higher level than you from his vehicle." = "* You cannot remove a player that has the same or a higher level than you from his vehicle."
+
+"Send a player a personal message." = "Send a player a personal message."
+
+"Usage: /pm [player] [message]" = "Usage: /pm [player] [message]"
+
+"You cannot pm yourself!" = "You cannot pm yourself!"
+
+"Display the server rules." = "Display the server rules."
+
+"Visit http://littlewhiteys.co.uk for an updated and full list of server rules and regulations." = "Visit http://littlewhiteys.co.uk for an updated and full list of server rules and regulations."
+
+"Don't (spawn)camp. Do not abuse bugs and/or glitches." = "Don't (spawn)camp. Do not abuse bugs and/or glitches."
+
+"Don't quit to avoid death. Respect other players." = "Don't quit to avoid death. Respect other players."
