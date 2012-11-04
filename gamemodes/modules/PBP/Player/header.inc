@@ -3,7 +3,7 @@
  *
  > Priority: 0
  */
-
+ 
 enum e_PLAYER_INFO {
 	      IP,
 	 bool:IsAdmin,

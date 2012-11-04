@@ -4,6 +4,41 @@
  > Priority: 0
  */
 
+/*CommandDescription<pm> = @"Send a player a personal message.";
+
+YCMD:pm( playerid, params[], help )
+{
+	if( help )
+	{
+		SendClientMessage( playerid, COLOR_COMMAND_HELP, @"Send a player a personal message." );
+usage:
+		SendClientMessage( playerid, COLOR_COMMAND_HELP, @"Usage: /pm [player] [message]" );
+	}
+	else
+	{
+		new 
+			otherid,
+			szMessage[128]
+		;
+		
+		if( !sscanf( params, !"k<player_name>s[128]", otherid, szMessage ) )
+		{
+			//if( otherid == playerid)
+			//	SendClientMessage( playerid, COLOR_COMMAND_ERROR, @"You cannot pm yourself!");
+			if isnull( szMessage ) 
+			goto usage;
+			else
+			{
+				GUI.InfoFeedAddf( otherid, "~y~~h~(PM) from %P: ~w~~h~%s", otherid, szMessage );
+			}
+		}
+		else 
+			goto usage;
+	}
+	
+	return 1;
+} */
+ 
 CommandDescription<commands> = @"See a list of available commands.";
 
 YCMD:commands(playerid, params[], help) {
@@ -42,5 +77,20 @@ usage:
 		}
 	}
 	
+	return 1;
+}
+
+CommandDescription<rules> = @"Display the server rules.";
+
+YCMD:rules( playerid, params[], help )
+{
+	if( help )
+		SendClientMessage( playerid, COLOR_COMMAND_HELP, @"Display the server rules." );
+	else
+	{
+		SendClientMessage( playerid, COLOR_GENERIC_INFO, @"Visit http://littlewhiteys.co.uk for an updated and full list of server rules and regulations." );
+		SendClientMessage( playerid, COLOR_GENERIC_INFO, @"Don't (spawn)camp. Do not abuse bugs and/or glitches." );
+		SendClientMessage( playerid, COLOR_GENERIC_INFO, @"Don't quit to avoid death. Respect other players." );
+	}
 	return 1;
 }
