@@ -31,7 +31,7 @@
 	weaponstate = GetPlayerWeaponState(playerid);
 	
 	Player.Info[playerid][DrunkLevel] = GetPlayerDrunkLevel(playerid);
-	money = GetPlayerMoney(playerid);
+	money = this.GetPlayerMoney(playerid);
 	
 	ping = GetPlayerPing(playerid);
 	

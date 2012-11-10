@@ -4,6 +4,39 @@
  > Priority: 10
  */
 
+stock this.GetPlayerMoney(playerid)
+	return this.Info[playerid][Money];
+ 
+stock this.SetFreeze( playerid, force = -1)
+{
+	switch( force ) //forced freezing or unfreezing
+	{
+		case -1:
+		{
+			if( Bit_Get(this.IsFrozen, playerid) )
+			{
+				TogglePlayerControllable(playerid, true);
+				Bit_Off(this.IsFrozen, playerid );
+			}
+			else
+			{
+				TogglePlayerControllable(playerid, false);
+				Bit_On(this.IsFrozen, playerid );
+			}
+		}
+		case 0: //forced unfreeze
+		{
+			TogglePlayerControllable( playerid, true );
+			Bit_Off(this.IsFrozen, playerid);
+		}
+		case 1: //forced freeze
+		{
+			TogglePlayerControllable(playerid, false);
+			Bit_On(this.IsFrozen, playerid );
+		}
+	}
+}
+ 
 // Test whether a player is in any of the groups given
 stock bool:this.IsInAnyOfGroups(playerid, Group:...) {
 	for (new i = numargs(); --i; ) {

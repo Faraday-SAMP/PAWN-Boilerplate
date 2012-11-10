@@ -182,6 +182,8 @@ public  this.CheckFeedExpiration( iPlayer )
 
 stock this.UpdatePlayerMoneyTextDraw( playerid )
 {
+	strdel(this.Buffer, 0, sizeof( this.Buffer ) );
+	
 	format( this.Buffer, sizeof( this.Buffer ), "$%08d", Player.Info[ playerid ][ Money ] < 0 ? -Player.Info[ playerid ][ Money ] : Player.Info[ playerid ][ Money ] );
 	
 	TextDrawSetString( this.txMoney[ playerid ], this.Buffer );

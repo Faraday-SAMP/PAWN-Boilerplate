@@ -14,4 +14,6 @@
 	Player.Info[playerid][IP] = GetIP(playerid);
 	
 	GetPlayerName(playerid, Player.Info[playerid][Name], MAX_PLAYER_NAME);
+	
+	Bit_Off(this.IsFrozen, playerid);
 }

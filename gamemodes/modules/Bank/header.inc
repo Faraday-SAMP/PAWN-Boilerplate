@@ -20,7 +20,7 @@ enum e_BANK_LOCATION
 
 enum
 {
-	this.DIALOG_WITHDRAW_DEPOSIT
+	this.DIALOG_MAIN
 };
 
 new const
@@ -33,5 +33,9 @@ new const
 ;
 
 new
-	BitArray:this.baUsedCheckpoints< CHECKPOINT_UPPER_LIMIT >
+	BitArray:this.baUsedCheckpoints< CHECKPOINT_UPPER_LIMIT >,
+			 this.PlayerBalance[ MAX_PLAYERS ],
+			 this.Buffer[ 256 ]
 ;
+
+RegisterUserVariable: this.PlayerBalance;

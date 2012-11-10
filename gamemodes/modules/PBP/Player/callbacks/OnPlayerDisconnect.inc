@@ -13,4 +13,5 @@
 		KillTimer(timer);
 	
 	TextDrawDestroyVar(this.TeleportTextDraw[playerid]);
+	
 }

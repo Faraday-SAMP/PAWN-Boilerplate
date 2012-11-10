@@ -10,7 +10,7 @@
 	new
 		enex_zone = this.GetEnExZone( enex_id )
 	;
-	GUI.InfoFeedAddf( playerid, "~w~* Welcome to ~y~%s ~w~at ~y~%s!", this.InteriorNames[ connected_entry ], GUI.ZoneNames[ enex_zone ] );
+	GUI.InfoFeedAddf( playerid, "~w~Welcome to ~y~%s ~w~at ~y~%s!", this.InteriorNames[ connected_entry ], GUI.ZoneNames[ enex_zone ] );
 	
 	
 }

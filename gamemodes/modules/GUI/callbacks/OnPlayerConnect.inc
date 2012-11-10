@@ -23,4 +23,14 @@
 	TextDrawColor          ( this.txMoney[ playerid ], 0x2C6826FF );
 	TextDrawSetOutline     ( this.txMoney[ playerid ], 2 );
 	TextDrawSetProportional( this.txMoney[ playerid ], 0 );
+	
+	this.txBankBalance[ playerid ] = TextDrawCreate(496.000000, 105.000000, "Bank: ~y~~h~$ 5,000,000");
+	
+	TextDrawBackgroundColor(this.txBankBalance[ playerid ], 255);
+	TextDrawFont		   (this.txBankBalance[ playerid ], 1);
+	TextDrawLetterSize	   (this.txBankBalance[ playerid ], 0.370000, 1.500000);
+	TextDrawColor		   (this.txBankBalance[ playerid ], -1);
+	TextDrawSetOutline	   (this.txBankBalance[ playerid ], 0);
+	TextDrawSetProportional(this.txBankBalance[ playerid ], 1);
+	TextDrawSetShadow	   (this.txBankBalance[ playerid ], 1);
 }

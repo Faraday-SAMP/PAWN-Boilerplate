@@ -37,6 +37,7 @@ new
 	    Text:this.TeleportTextDraw[MAX_PLAYERS] = {INVALID_TEXT_DRAW, ...},
 	         this.TeleportStart[MAX_PLAYERS],
 	BitArray:this.HasTeleported<MAX_PLAYERS>,
+	BitArray:this.IsFrozen<MAX_PLAYERS>,
 	   Float:this.TeleportDuration = 1500.0,
 	         this.TeleportTimerStep = 40,
 	         this.CB_OnPlayerPositionUpdate,

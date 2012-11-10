@@ -750,5 +750,6 @@ new
 	Text:this.txPlayerZoneTextDraw[ MAX_PLAYERS ],
 	Text:this.txZoneNames[ sizeof( this.ZoneNames ) ] = { INVALID_TEXT_DRAW, ... },
 	Text:this.txMoneyBackground = INVALID_TEXT_DRAW,
-	Text:this.txMoney[ MAX_PLAYERS ] = { INVALID_TEXT_DRAW, ... }
+	Text:this.txMoney[ MAX_PLAYERS ] = { INVALID_TEXT_DRAW, ... },
+	Text:this.txBankBalance[ MAX_PLAYERS ] = { INVALID_TEXT_DRAW, ... }
 ;		 

@@ -158,3 +158,21 @@
 "Don't (spawn)camp. Do not abuse bugs and/or glitches." = "Don't (spawn)camp. Do not abuse bugs and/or glitches."
 
 "Don't quit to avoid death. Respect other players." = "Don't quit to avoid death. Respect other players."
+
+"~r~ERROR: ~w~Follow the bank instructions to make a deposit or withdrawal." = "~r~ERROR: ~w~Follow the bank instructions to make a deposit or withdrawal."
+
+"~r~ERROR: ~w~Invalid amount." = "~r~ERROR: ~w~Invalid amount."
+
+"You deposited $ %d" = "You deposited $ %d"
+
+"You withdrew $ %d" = "You withdrew $ %d"
+
+"~r~ERROR: ~w~Invalid amount: $ %d." = "~r~ERROR: ~w~Invalid amount: $ %d."
+
+"~r~ERROR: ~w~Invalid amount: ~r~~h~$ %d." = "~r~ERROR: ~w~Invalid amount: ~r~~h~$ %d."
+
+"You deposited ~g~$ %d" = "You deposited ~g~$ %d"
+
+"~r~ERROR: ~w~Invalid amount: ~r~~h~* %d." = "~r~ERROR: ~w~Invalid amount: ~r~~h~* %d."
+
+"You withdrew ~g~$ %d" = "You withdrew ~g~$ %d"
