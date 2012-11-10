@@ -7,7 +7,7 @@
  */
 
 {
-	if ( this.AreaZone{ areaid } != 0xFF )
+	if( this.AreaZone{ areaid } != 0xFF )
 	{
 		OnPlayerZoneChange( playerid, this.AreaZone{ areaid }, this.CurrentPlayerZone[ playerid ] );
 		

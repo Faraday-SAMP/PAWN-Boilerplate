@@ -35,7 +35,7 @@
 		iConnectedEntry = this.EntryLinks[ i ][ e_iConnectedEntry ];
 		
 		CreateDynamicPickup( this.iPickupModel, 1, this.EntryLinks[ i ][ e_fPickupX ], this.EntryLinks[ i ][ e_fPickupY ], this.EntryLinks[ i ][ e_fPickupZ ] + this.iOffsetZ, WORLD_MAIN, this.EntryLinks[ i ][ e_iInterior ] );
-		
+				
 		iArea = CreateDynamicSphere( this.EntryLinks[ i ][ e_fPickupX ], this.EntryLinks[ i ][ e_fPickupY ], this.EntryLinks[ i ][ e_fPickupZ ] + this.iOffsetZ, ENEX_AREA_RADIUS, WORLD_MAIN, this.EntryLinks[ i ][ e_iInterior ] );
 		
 		this.aiAreaEntry[ iArea ] = i;

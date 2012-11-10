@@ -37,6 +37,8 @@ stock this.SetPlayerEnexEntry( playerid, iEnEx )
 	
 	OnPlayerEnterInterior( playerid, iEnEx, iConnectedEntry );
 	
+	Bit_On(this.baPlayerEntered, playerid);
+	
 	return true;
 }
 
@@ -61,6 +63,8 @@ stock this.SetPlayerEnexExit( playerid, iEnEx )
 	
 	if ( GetPlayerTeam( playerid ) == ENEX_TEAM_PROTECTED )
 		SetPlayerTeam( playerid, NO_TEAM );
+		
+	Bit_Off(this.baPlayerEntered, playerid );
 	
 	//OnPlayerExitInterior( playerid, iEnEx, this::EntryLinks[ iEnEx ][ e_iConnectedEntry ] );
 	
@@ -116,3 +120,4 @@ stock this.GetEnExInteriorInterior( iInterior )
 {
 	return this.ConnectedEntries[ iInterior ][ e_iInterior ];
 }
+

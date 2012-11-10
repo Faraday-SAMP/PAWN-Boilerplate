@@ -49,9 +49,8 @@ new
 	         this.aiAreaConnectedEntry[ ZONE_AREA_UPPER_LIMIT ] = { -1, ... },
 	         this.aiInteriorGroup[ sizeof( this.EntryLinks ) ] = { -1, ... },
 	         this.aiCurrentEnExArea[ MAX_PLAYERS ] = { -1, ... },
-	         this.aiEnterStep[ MAX_PLAYERS char ],
-	         this.aiEnterTime[ MAX_PLAYERS ],
 	BitArray:this.baCooldown< MAX_PLAYERS >,
 	BitArray:this.baIsInteriorProtected< sizeof( this.ConnectedEntries ) >,
+	BitArray:this.baPlayerEntered< MAX_PLAYERS >,
 	         this.aiEntryZone[ sizeof( this.EntryLinks ) ] = { -1, ... }
 ;

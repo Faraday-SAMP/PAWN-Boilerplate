@@ -17,6 +17,9 @@
 		
 		iCheckpoint = CreateDynamicCP( this.BankLocations[ i ][ e_fX ], this.BankLocations[ i ][ e_fY ], this.BankLocations[ i ][ e_fZ ], BANK_MARKER_RADIUS, _, iInterior );
 		
+		CreateDynamicMapIcon( this.BankLocations[ i ][ e_fX ], this.BankLocations[ i ][ e_fY ], this.BankLocations[ i ][ e_fZ ], BANK_MAP_ICON, -1);
+		printf( "BANK: %d | fX: %.2f |fY: %.2f |fZ: %.2f |ICON: %d", i, this.BankLocations[i][e_fX], this.BankLocations[i][e_fY], this.BankLocations[i][e_fZ], BANK_MAP_ICON);
+		
 		Bit_On(this.baUsedCheckpoints, iCheckpoint);
 	}
 

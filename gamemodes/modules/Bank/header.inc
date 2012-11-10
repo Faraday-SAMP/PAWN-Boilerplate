@@ -4,9 +4,10 @@
  > Priority: 6
  */
 //sdfsdfs
-#define PLAYER_AC_MONEY (-9000)
+#define PLAYER_AC_MONEY 	 (-9000)
 #define BANK_MARKER_RADIUS   (1.0)
 #define BANK_PERSONAL_LIMIT	 (1000000)
+#define BANK_MAP_ICON		 (52)
 
 enum e_BANK_LOCATION
 {

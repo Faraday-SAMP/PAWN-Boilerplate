@@ -10,9 +10,7 @@
 	if ( this.aiAreaEntry[ areaid ] != -1 || this.aiAreaConnectedEntry[ areaid ] != -1 )
 	{
 		if ( this.aiCurrentEnExArea[ playerid ] != -1 )
-		{
-			ClearAnimations( playerid, 1 );
-			
+		{		
 			this.aiCurrentEnExArea[ playerid ] = -1;
 		}
 	}

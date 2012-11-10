@@ -7,15 +7,15 @@
  */
 
 {
-	if ( ( this.aiAreaEntry[ areaid ] != -1 || this.aiAreaConnectedEntry[ areaid ] != -1 ) && GetPlayerState( playerid ) == PLAYER_STATE_ONFOOT )
+
+	if( ( this.aiAreaEntry[ areaid ] != -1 || this.aiAreaConnectedEntry[ areaid ] != -1 ) && GetPlayerState( playerid ) == PLAYER_STATE_ONFOOT )
 	{
-		if ( Bit_Get(this.baCooldown, playerid) )
+		if( Bit_Get(this.baCooldown, playerid) )
 			Bit_Off(this.baCooldown, playerid);
+		else if( Bit_Get(this.baPlayerEntered, playerid) && !Bit_Get(this.baCooldown, playerid ) )
+			this.SetPlayerEnexExit( playerid, this.aiAreaConnectedEntry[ areaid ] );
 		else
-		{
-			this.aiEnterStep{ playerid } = 0;
-			this.aiEnterTime[ playerid ] = GetTickCount( );
-			this.aiCurrentEnExArea[ playerid ] = areaid;
-		}
+			this.SetPlayerEnexEntry( playerid, this.aiAreaEntry[ areaid ] );
 	}
+
 }
