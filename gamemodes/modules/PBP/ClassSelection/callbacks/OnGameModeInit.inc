@@ -56,6 +56,18 @@
 		.rot      = 314.0858
 	);
 	
+	new Float:minvalX;
+	
+	SortDeepArray(this.FireFighterSpawns, e_fX);
+	
+	minvalX = this.FireFighterSpawns[ 0 ][ e_fX ];
+	printf( "minvalX: %.2f", minvalX);
+	
+	for( new i = 0; i < sizeof( this.FireFighterSpawns ); i++ )
+	{
+		printf( "this.FireFighterSpawns[ %d ][ %.2f]", this.FireFighterSpawns[ i ][ e_fX ] );
+	}
+	
 	foreach (new skin : Numbers({155, 167}))
 		CreateClass(skin, this.PublicService);
 	

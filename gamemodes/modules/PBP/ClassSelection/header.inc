@@ -48,12 +48,21 @@ enum this.E_CLASS {
 };
 
 enum this.E_SPAWN {
+
+		  e_ClassIdx,
 		  e_Interior,
 		  e_World,
 	Float:e_fX,
 	Float:e_fY,
 	Float:e_fZ,
 	Float:e_fRot
+};
+
+enum {
+
+	this.FIRE,
+	this.CONS,
+	this.MEDI
 };
 
 
@@ -87,16 +96,16 @@ new
 	    bool:this.ShowWeapons = true
 ;
 
-new const
+new 
 	this.FireFighterSpawns[ ][ this.E_SPAWN ] = 
 	{	
-		{ 0, WORLD_MAIN, 1745.3087, 2077.5161, 10.8203, 201.5947 },
-		{ 0, WORLD_MAIN, 1727.4501, 2082.0044, 10.8203, 235.2470 },
-		{ 0, WORLD_MAIN, 1776.2842, 2066.6489, 10.8203,  84.2816 },
-		{ 0, WORLD_MAIN, 1774.5193, 2084.0483, 10.8203, 182.0426 },
-		{ 0, WORLD_MAIN, 1766.5184, 2077.4226, 10.8203, 184.4865 },
-		{ 0, WORLD_MAIN, 1760.2773, 2076.5188, 10.8203, 184.2985 },
-		{ 0, WORLD_MAIN, 1753.8771, 2075.7888, 10.8203, 176.9664 }
+		{ this.FIRE, 0, WORLD_MAIN, 1745.3087, 2077.5161, 10.8203, 201.5947 },
+		{ this.FIRE, 0, WORLD_MAIN, 1727.4501, 2082.0044, 10.8203, 235.2470 },
+		{ this.FIRE, 0, WORLD_MAIN, 1776.2842, 2066.6489, 10.8203,  84.2816 },
+		{ this.FIRE, 0, WORLD_MAIN, 1774.5193, 2084.0483, 10.8203, 182.0426 },
+		{ this.FIRE, 0, WORLD_MAIN, 1766.5184, 2077.4226, 10.8203, 184.4865 },
+		{ this.FIRE, 0, WORLD_MAIN, 1760.2773, 2076.5188, 10.8203, 184.2985 },
+		{ this.FIRE, 0, WORLD_MAIN, 1753.8771, 2075.7888, 10.8203, 176.9664 }
 	}
 ;
 		

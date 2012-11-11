@@ -79,6 +79,37 @@ stock CreateSpawnLocation(interior = 0, world = 0, Float:x, Float:y, Float:z, Fl
 	return id;
 }
 
+stock CreateSpawnArea( interior = 0, world = WORLD_MAIN, Float:x, Float:y, Float:z, Float:rot, Group:group = GROUP_GLOBAL, team = INVALID_TEAM, weapon_set = INVALID_WEAPON_SET )
+{
+	if( this.NumSpawnLocations >= MAX_SPAWN_LOCATIONS )
+	{
+		print(" (ClassSelection.CreateSpawnLocation) ERROR: Exceeded MAX_SPAWN_LOCATIONS." );
+		return INVALID_SPAWN_LOCATION;
+	}
+	
+	if (!IsValidWeaponSet(weapon_set)) 
+	{
+		printf("(ClassSelection.CreateSpawnLocation) WARNING: Invalid weapon set given.");
+		
+		weapon_set = INVALID_WEAPON_SET;
+	}
+	
+	new 
+		id = this.NumSpawnLocations++,
+		Float:minvalX,
+		Float:maxvalX,
+		Float:minvalY,
+		Float:maxvalY,
+		Float:minvalZ,
+		Float:maxvalZ
+	;
+	
+
+	
+	
+	
+}
+
 stock CreateClass(skin, spawn_location, weapon_set = INVALID_WEAPON_SET, world = 0, Group:group = GROUP_GLOBAL, team = INVALID_TEAM) {
 	if (this.NumClasses >= MAX_CLASSES) {
 		printf("(ClassSelection.CreateClass) ERROR: Exceeded MAX_CLASSES.");
