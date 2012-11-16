@@ -10,6 +10,8 @@ const MAX_WEAPON_SETS = 40;
 const MAX_SPAWN_LOCATIONS = 100;
 const MAX_CLASSES = 500;
 const this.MAX_WEAPON_SLOT = MAX_WEAPON_SLOT + 1;
+const MAX_SPAWN_AREAS = 25;
+const MAX_SPAWN_POINTS = 10;
 
 const INVALID_TEAM = -1;
 const INVALID_WEAPON_SET = -1;
@@ -36,6 +38,20 @@ enum this.E_SPAWN_LOCATION {
 	Group:Group,
 	      Team,
 	      WeaponSet
+};
+
+enum this.E_SPAWN_AREA {
+		  Interior,
+		  World,
+	Float:minX,
+	Float:maxX,
+	Float:minY,
+	Float:maxY,
+	Group:Group,
+		  Team,
+		  WeaponSet,
+		  RectangleID,
+		  Index
 };
 
 enum this.E_CLASS {
@@ -65,14 +81,24 @@ enum {
 	this.MEDI
 };
 
+enum this.E_PRELOAD {
+	Float:e_fX,
+	Float:e_fY,
+	Float:e_fZ,
+	Float:e_fRot
+};
+	
 
 new
 	         this.WeaponSets[MAX_WEAPON_SETS][this.MAX_WEAPON_SLOT][this.E_WEAPON_SET],
 	         this.SpawnLocations[MAX_SPAWN_LOCATIONS][this.E_SPAWN_LOCATION],
+			 this.SpawnAreas[ MAX_SPAWN_AREAS ][ this.E_SPAWN_AREA ],
 	         this.Classes[MAX_CLASSES][this.E_CLASS],
+			 this.PreLoadSpawn[ MAX_SPAWN_AREAS ][ this.E_PRELOAD ],
 	
 	         this.NumWeaponSets = 0,
 	         this.NumSpawnLocations = 0,
+			 this.NumSpawnAreas = 0,
 	         this.NumClasses = 0,
 	
 	BitArray:this.PlayerHasRequestedClass<MAX_PLAYERS>,
@@ -97,7 +123,7 @@ new
 ;
 
 new 
-	this.FireFighterSpawns[ ][ this.E_SPAWN ] = 
+	this.Spawns[ ][ this.E_SPAWN ] = 
 	{	
 		{ this.FIRE, 0, WORLD_MAIN, 1745.3087, 2077.5161, 10.8203, 201.5947 },
 		{ this.FIRE, 0, WORLD_MAIN, 1727.4501, 2082.0044, 10.8203, 235.2470 },

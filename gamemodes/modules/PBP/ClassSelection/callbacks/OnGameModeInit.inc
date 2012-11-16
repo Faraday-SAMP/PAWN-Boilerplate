@@ -15,32 +15,31 @@
 
 	new
 		this.FireFighter,
-		this.PublicService,
-		this.Ammunation,
-		this.Construction
+		this.PublicService
+/*		this.Ammunation,
+		this.Construction*/
 	;
 		
-	for( new i = 0; i < sizeof( this.FireFighterSpawns ); i++ )
-	{	
-		this.FireFighter = CreateSpawnLocation(
-			.interior = this.FireFighterSpawns[ i ][ e_Interior ],
-			.world    = this.FireFighterSpawns[ i ][ e_World ],
-			.x		  = this.FireFighterSpawns[ i ][ e_fX ],
-			.y		  = this.FireFighterSpawns[ i ][ e_fY ],
-			.z		  = this.FireFighterSpawns[ i ][ e_fZ ],
-			.rot	  = this.FireFighterSpawns[ i ][ e_fRot ]
-		);
-	}
+	this.FireFighter = CreateSpawnArea(
+		.interior = 0,
+		.minx = 2778.711,
+		.maxx = 2304.888,
+		.miny = 2876.332,
+		.maxy = 2424.798
+	);
+
+	foreach (new skin : Numbers({277, 278, 279, 277, 278, 279, 277 }))
+		CreateClass( skin, this.FireFighter );
 	
 	this.PublicService = CreateSpawnLocation(
 		.interior = 0,
-		.x        = 203.7050,
-		.y        = -205.3500,
-		.z        = 1.5781,
-		.rot      = 180.0
+		.x        = 1745.3087,
+		.y        = 2077.5161,		
+		.z        = 10.8203,
+		.rot      = 201.5947
 	);
 	
-	this.Ammunation = CreateSpawnLocation(
+/*	this.Ammunation = CreateSpawnLocation(
 		.interior = 0,
 		.x        = 240.0390,
 		.y        = -178.2970,
@@ -55,23 +54,13 @@
 		.z        = 13.4838,
 		.rot      = 314.0858
 	);
+	*/
 	
-	new Float:minvalX;
-	
-	SortDeepArray(this.FireFighterSpawns, e_fX);
-	
-	minvalX = this.FireFighterSpawns[ 0 ][ e_fX ];
-	printf( "minvalX: %.2f", minvalX);
-	
-	for( new i = 0; i < sizeof( this.FireFighterSpawns ); i++ )
-	{
-		printf( "this.FireFighterSpawns[ %d ][ %.2f]", this.FireFighterSpawns[ i ][ e_fX ] );
-	}
 	
 	foreach (new skin : Numbers({155, 167}))
 		CreateClass(skin, this.PublicService);
 	
-	// Ammu-nation guy skin
+/*	// Ammu-nation guy skin
 	CreateClass(179, this.Ammunation);
 	
 	// Construction workers
@@ -80,5 +69,5 @@
 	
 	foreach (new skin : Numbers({277, 278, 279, 277, 278, 279, 277 }))
 		CreateClass( skin, this.FireFighter );
-	
+	*/
 }

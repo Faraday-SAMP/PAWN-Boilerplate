@@ -12,6 +12,10 @@ stock bool:IsValidSpawnLocation(spawn) {
 	return (spawn == INVALID_SPAWN_LOCATION || 0 <= spawn < this.NumSpawnLocations);
 }
 
+stock bool:IsValidSpawnArea(spawn)
+	return (spawn == INVALID_SPAWN_LOCATION || 0 <= spawn < this.NumSpawnAreas );
+
+
 stock bool:IsValidClass(class) {
 	return (class == INVALID_CLASS || 0 <= class < this.NumClasses);
 }
@@ -79,11 +83,11 @@ stock CreateSpawnLocation(interior = 0, world = 0, Float:x, Float:y, Float:z, Fl
 	return id;
 }
 
-stock CreateSpawnArea( interior = 0, world = WORLD_MAIN, Float:x, Float:y, Float:z, Float:rot, Group:group = GROUP_GLOBAL, team = INVALID_TEAM, weapon_set = INVALID_WEAPON_SET )
+stock CreateSpawnArea( interior = 0, world = WORLD_MAIN, Float:minx, Float:maxx, Float:miny, Float:maxy, Group:group = GROUP_GLOBAL, team = INVALID_TEAM, weapon_set = INVALID_WEAPON_SET )
 {
-	if( this.NumSpawnLocations >= MAX_SPAWN_LOCATIONS )
+	if( this.NumSpawnAreas >= MAX_SPAWN_LOCATIONS )
 	{
-		print(" (ClassSelection.CreateSpawnLocation) ERROR: Exceeded MAX_SPAWN_LOCATIONS." );
+		print(" (ClassSelection.CreateSpawnArea) ERROR: Exceeded MAX_SPAWN_LOCATIONS." );
 		return INVALID_SPAWN_LOCATION;
 	}
 	
@@ -94,21 +98,42 @@ stock CreateSpawnArea( interior = 0, world = WORLD_MAIN, Float:x, Float:y, Float
 		weapon_set = INVALID_WEAPON_SET;
 	}
 	
+	new id = this.NumSpawnAreas++;
+	
+	this.SpawnAreas[id][Interior] 	= interior;
+	this.SpawnAreas[id][World] 		= world;
+	this.SpawnAreas[id][minX]       = minx;
+	this.SpawnAreas[id][maxX]		= maxx;
+	this.SpawnAreas[id][minY]		= miny;
+	this.SpawnAreas[id][maxY]		= maxy;
+	this.SpawnAreas[id][Group]		= group;
+	this.SpawnAreas[id][Team]		= team;
+	this.SpawnAreas[id][WeaponSet]	= weapon_set;
+	
+	this.SpawnAreas[id][RectangleID] = CreateDynamicRectangle( minx, maxx, miny, maxy, world, interior );
+	
+	return id;
+}
+	
+stock PreLoadSpawnPointsInArea( spawn_area )
+{
 	new 
-		id = this.NumSpawnLocations++,
-		Float:minvalX,
-		Float:maxvalX,
-		Float:minvalY,
-		Float:maxvalY,
-		Float:minvalZ,
-		Float:maxvalZ
+		randy = random( sizeof( this.Spawns ) )
 	;
 	
-
-	
-	
-	
+	for( new i = 0; i < MAX_SPAWN_POINTS; i++ )
+	{
+		new 
+			randy = random( sizeof( this.Spawns ) )
+		;
+		this.PreLoadSpawn[ i ][ e_fX ] = this.Spawns[ randy ][ e_fX ];
+		this.PreLoadSpawn[ i ][ e_fY ] = this.Spawns[ randy ][ e_fY ];
+		this.PreLoadSpawn[ i ][ e_fZ ] = this.Spawns[ randy ][ e_fZ ];
+		this.PreLoadSpawn[ i ][ e_fRot ] = 180;
+		
+	}
 }
+
 
 stock CreateClass(skin, spawn_location, weapon_set = INVALID_WEAPON_SET, world = 0, Group:group = GROUP_GLOBAL, team = INVALID_TEAM) {
 	if (this.NumClasses >= MAX_CLASSES) {

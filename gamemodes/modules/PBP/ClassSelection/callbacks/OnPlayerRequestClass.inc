@@ -55,6 +55,8 @@
 		SetPlayerSkin        (playerid, this.Classes[class][Skin]);
 
 		SetSpawnInfo(playerid, NO_TEAM, this.Classes[class][Skin], XYZR(this.SpawnLocations[spawn]), 0, 0, 0, 0, 0, 0);
+
+		
 		
 		if (this.ShowsSpawn) {
 			new Float:x, Float:y, Float:rot;

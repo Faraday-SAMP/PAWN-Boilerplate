@@ -14,19 +14,25 @@
 	
 	TextDrawDestroyVar(this.WeaponsInfo[playerid]);
 	
-	SetPlayerInterior(playerid, this.SpawnLocations[this.Classes[class][SpawnLocation]][Interior]);
+	//SetPlayerInterior(playerid, this.SpawnLocations[this.Classes[class][SpawnLocation]][Interior]);
+	
+	SetPlayerInterior(playerid, this.SpawnAreas[this.Classes[class][SpawnLocation]][Interior]);
 	
 	if (this.Classes[class][World] != 0)
 		SetPlayerVirtualWorld(playerid, this.Classes[class][World]);
-	else if (this.SpawnLocations[this.Classes[class][SpawnLocation]][World] != 0)
-		SetPlayerVirtualWorld(playerid, this.SpawnLocations[this.Classes[class][SpawnLocation]][World]);
+/*	else if (this.SpawnLocations[this.Classes[class][SpawnLocation]][World] != 0)
+		SetPlayerVirtualWorld(playerid, this.SpawnLocations[this.Classes[class][SpawnLocation]][World]);*/
+	else if( this.SpawnAreas[this.Classes[class][SpawnLocation]][World] != 0 )
+		SetPlayerVirtualWorld(playerid, this.SpawnAreas[ this.Classes[ class ][ SpawnLocation ]][ World ] );
 	else
 		SetPlayerVirtualWorld(playerid, 0);
 	
 	if (this.Classes[class][Team] != INVALID_TEAM)
 		SetPlayerTeam(playerid, this.Classes[class][Team]);
-	else if (this.SpawnLocations[this.Classes[class][SpawnLocation]][Team] != INVALID_TEAM)
-		SetPlayerTeam(playerid, this.SpawnLocations[this.Classes[class][SpawnLocation]][World]);
+/*	else if (this.SpawnLocations[this.Classes[class][SpawnLocation]][Team] != INVALID_TEAM)
+		SetPlayerTeam(playerid, this.SpawnLocations[this.Classes[class][SpawnLocation]][World]);*/
+	else if( this.SpawnAreas[ this.Classes[ class ][ SpawnLocation ]][ Team ] != INVALID_TEAM )
+		SetPlayerTeam( playerid, this.SpawnAreas[ this.Classes[class][SpawnLocation]][Team]);
 	else
 		SetPlayerTeam(playerid, NO_TEAM);
 
@@ -36,20 +42,33 @@
 			
 			this.GroupSetOnSpawn[playerid] = this.Classes[class][Group];
 		}
-	} else if (this.SpawnLocations[this.Classes[class][SpawnLocation]][Group] != GROUP_GLOBAL) {
+	} 
+	/*else if (this.SpawnLocations[this.Classes[class][SpawnLocation]][Group] != GROUP_GLOBAL) {
 		if (!Group_GetPlayer(this.SpawnLocations[this.Classes[class][SpawnLocation]][Group], playerid)) {
 			Group_SetPlayer(this.SpawnLocations[this.Classes[class][SpawnLocation]][Group], playerid, true);
 			
 			this.GroupSetOnSpawn[playerid] = this.SpawnLocations[this.Classes[class][SpawnLocation]][Group];
 		}
+	}*/
+	else if( this.SpawnAreas[ this.Classes[class][SpawnLocation]][ Group ] != GROUP_GLOBAL )
+	{
+		if( !Group_GetPlayer( this.SpawnAreas[ this.Classes[class][SpawnLocation]][ Group ], playerid ) )
+		{
+			Group_SetPlayer(this.SpawnAreas[this.Classes[class][SpawnLocation]][Group], playerid, true);
+			
+			this.GroupSetOnSpawn[playerid] = this.SpawnAreas[this.Classes[class][SpawnLocation]][Group];
+		}	
 	}
+	
 	
 	new weapon_set = INVALID_WEAPON_SET;
 	
 	if (this.Classes[class][WeaponSet] != INVALID_WEAPON_SET)
 		weapon_set = this.Classes[class][WeaponSet];
-	else if (this.SpawnLocations[this.Classes[class][SpawnLocation]][WeaponSet] != INVALID_WEAPON_SET)
-		weapon_set = this.SpawnLocations[this.Classes[class][SpawnLocation]][WeaponSet];
+	/*else if (this.SpawnLocations[this.Classes[class][SpawnLocation]][WeaponSet] != INVALID_WEAPON_SET)
+		weapon_set = this.SpawnLocations[this.Classes[class][SpawnLocation]][WeaponSet];*/
+	else if( this.SpawnAreas[this.Classes[class][SpawnLocation]][WeaponSet] != INVALID_WEAPON_SET)
+		weapon_set = this.SpawnAreas[this.Classes[class][SpawnLocation]][WeaponSet];
 	
 	if (weapon_set != INVALID_WEAPON_SET) {
 		for (new slot = 0; slot < this.MAX_WEAPON_SLOT; slot++) {
