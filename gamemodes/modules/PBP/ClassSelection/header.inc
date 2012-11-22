@@ -78,7 +78,8 @@ enum {
 
 	this.FIRE,
 	this.CONS,
-	this.MEDI
+	this.MEDI,
+	this.SERV
 };
 
 enum this.E_PRELOAD {
@@ -88,6 +89,15 @@ enum this.E_PRELOAD {
 	Float:e_fRot
 };
 	
+enum this.E_CAMOPTS {
+	e_ClassIdx,
+	e_Interior,
+	e_World,
+	Float:e_fPlayerX,
+	Float:e_fPlayerY,
+	Float:e_fPlayerZ,
+	Float:e_fPlayerA
+};
 
 new
 	         this.WeaponSets[MAX_WEAPON_SETS][this.MAX_WEAPON_SLOT][this.E_WEAPON_SET],
@@ -131,9 +141,25 @@ new
 		{ this.FIRE, 0, WORLD_MAIN, 1774.5193, 2084.0483, 10.8203, 182.0426 },
 		{ this.FIRE, 0, WORLD_MAIN, 1766.5184, 2077.4226, 10.8203, 184.4865 },
 		{ this.FIRE, 0, WORLD_MAIN, 1760.2773, 2076.5188, 10.8203, 184.2985 },
-		{ this.FIRE, 0, WORLD_MAIN, 1753.8771, 2075.7888, 10.8203, 176.9664 }
+		{ this.FIRE, 0, WORLD_MAIN, 1753.8771, 2075.7888, 10.8203, 176.9664 },
+		{ this.SERV, 0, WORLD_MAIN, 2919.4958, 2480.6042, 10.8203, 156.2882 },
+		{ this.SERV, 0, WORLD_MAIN, 2893.5481, 2460.3755, 11.0690, 227.3530 },
+		{ this.SERV, 0, WORLD_MAIN, 2896.0251, 2403.4373, 11.0625,  90.2997 },
+		{ this.SERV, 0, WORLD_MAIN, 2874.5129, 2342.0698, 11.0625,  90.6757 },
+		{ this.SERV, 0, WORLD_MAIN, 2847.3718, 2342.5662, 11.0625,   1.5629 },
+		{ this.SERV, 0, WORLD_MAIN, 2820.7368, 2346.0745, 11.0625, 359.3069 },
+		{ this.SERV, 0, WORLD_MAIN, 2799.2102, 2367.4417, 10.8203, 344.2660 },
+		{ this.SERV, 0, WORLD_MAIN, 2794.5352, 2435.0862, 11.0625, 141.0369 },
+		{ this.SERV, 0, WORLD_MAIN, 2750.0698, 2480.4458, 11.0625, 194.2180 },
+		{ this.SERV, 0, WORLD_MAIN, 2801.4956, 2403.6621, 10.8203, 104.1653 }
+	},
+	
+	this.ReqSpawn[ ][ this.E_CAMOPTS ] = 
+	{
+		{ this.SERV, 0, WORLD_MAIN, 2849.2178, 2417.0232, 16.2862, 235.1236 }
 	}
 ;
+
 		
 		
 

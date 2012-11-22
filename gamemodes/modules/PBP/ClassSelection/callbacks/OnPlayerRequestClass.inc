@@ -56,7 +56,23 @@
 
 		SetSpawnInfo(playerid, NO_TEAM, this.Classes[class][Skin], XYZR(this.SpawnLocations[spawn]), 0, 0, 0, 0, 0, 0);
 
+		if( class == this.SERV )
+		{
+			new
+				Float:x, Float:y, Float:rot;
+				
+			rot = this.ReqSpawn[ spawn ][ e_fPlayerA ];
+			
+			x = this.ReqSpawn[ spawn ][ e_fPlayerX ] + (this.CameraDistance * floatsin( -rot, degrees ) );
+			y = this.ReqSpawn[ spawn ][ e_fPlayerY ] + (this.CameraDistance * floatcos( -rot, degrees ) );
 		
+			SetPlayerCameraPos( playerid, x, y, this.ReqSpawn[ spawn ][ e_fPlayerZ ] + this.CameraDistanceZ );
+			SetPlayerCameraLookAt( playerid, this.ReqSpawn[ spawn ][ e_fPlayerX ], this.ReqSpawn[ spawn ][ e_fPlayerY ], this.ReqSpawn[ spawn ][ e_fPlayerZ ] );
+			SetPlayerPos( playerid, this.ReqSpawn[ spawn ][ e_fPlayerX ], this.ReqSpawn[ spawn ][ e_fPlayerY ], this.ReqSpawn[ spawn ][ e_fPlayerZ ] );
+			SetPlayerInterior( playerid, this.ReqSpawn[ spawn ][ e_Interior ] );
+			SetPlayerFacingAngle( playerid, rot );
+		
+		}
 		
 		if (this.ShowsSpawn) {
 			new Float:x, Float:y, Float:rot;
